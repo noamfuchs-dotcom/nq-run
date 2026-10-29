@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>N &amp; Q Run</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#ff8fb8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="N&amp;Q Run">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" href="icon-192.png">
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Nunito:wght@400;700;800&family=Gochi+Hand&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Phone app: three tabs (This week / Plan / Runs) with a fixed bottom tab bar */
+:root{--bg:#fdf6f9;--card:#ffffff;--ink:#2d3a5a;--muted:#7a849c;--line:#f2dde8;--sea:#7cc4ee;--sea-soft:#e3f3fd;--sun:#ff8fb8;--sun-soft:#ffe4ef;--sand:#cfe9fb;
+  --good:#3fa98a;--warn:#c98a10;--bad:#e0526f;
+  --f-display:"Bagel Fat One","Arial Rounded MT Bold",sans-serif;--f-body:"Nunito",system-ui,-apple-system,sans-serif;--f-hand:"Gochi Hand","Comic Sans MS",cursive;--f-mono:"DM Mono",ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root{--bg:#1d1a27;--card:#28243a;--ink:#f3eef8;--muted:#a9a3bd;--line:#3a3452;--sea:#8fd0f5;--sea-soft:#22364a;--sun:#ff9ec2;--sun-soft:#3d2433;--sand:#2c4a63;--good:#6fd0ad;--warn:#f0bd4c;--bad:#ff8099;color-scheme:dark}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.45}
+.c{max-width:480px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-top:max(16px,env(safe-area-inset-top,0px));padding-bottom:calc(96px + env(safe-area-inset-bottom,0px));display:grid;gap:16px}
+.top{display:flex;justify-content:space-between;align-items:baseline;margin:0}
+.top b{font-family:var(--f-display);font-weight:400;font-size:26px}.top b i{font-style:normal;color:var(--sun)}
+.top span{font-family:var(--f-hand);font-size:21px;color:var(--muted)}
+h2{font-family:var(--f-display);font-weight:400;font-size:28px;margin:0;line-height:1.1}
+.sub{margin:-8px 0 0;color:var(--muted);font-size:15px}
+.next{background:linear-gradient(135deg,var(--sun) 0%,#c7a3e6 55%,#86c3ee 100%);color:#fff;border-radius:22px;padding:18px 20px;display:grid;gap:6px}
+.next small{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;opacity:.9}
+.next b{font-family:var(--f-display);font-weight:400;font-size:40px;line-height:1.05}
+.next .when{font-weight:800}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.pills span{background:rgba(255,255,255,.22);border-radius:99px;padding:5px 12px;font-weight:800;font-size:15px;font-family:var(--f-mono)}
+.box{background:var(--card);border:2px solid var(--sea-soft);border-radius:20px;padding:14px 16px}
+.meta{display:flex;justify-content:space-between;gap:8px;font-size:14px;font-weight:800;color:var(--muted);margin:0 0 8px}
+.bar{height:10px;border-radius:99px;background:var(--line);overflow:hidden}.bar i{display:block;height:100%;width:0;background:var(--sea)}
+ul{list-style:none;margin:10px 0 0;padding:0}
+.row{display:grid;grid-template-columns:26px minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--line)}
+.row .ic{width:24px;height:24px;border-radius:50%;border:2px solid var(--muted);display:grid;place-items:center}
+.row.done .ic{background:var(--sea);border-color:var(--sea)}
+.row.done .ic::after{content:"";width:6px;height:11px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.row.missed{opacity:.45}.row.missed .d{text-decoration:line-through}
+.d{font-weight:800}
+.s{font-size:14px;color:var(--muted);font-family:var(--f-mono)}
+.k{font-family:var(--f-mono);font-size:17px;font-weight:500;text-align:right;white-space:nowrap}
+.v{display:inline-block;font-size:12px;font-weight:800;padding:1px 8px;border-radius:99px;margin-left:6px;font-family:var(--f-body);background:var(--line);color:var(--ink)}
+.v.good{background:color-mix(in srgb,var(--good) 20%,transparent);color:var(--good)}
+.v.warn{background:color-mix(in srgb,var(--warn) 22%,transparent)}
+.v.bad{background:color-mix(in srgb,var(--bad) 18%,transparent);color:var(--bad)}
+.coach{margin:0;font-size:16px;line-height:1.5}
+.coach::before{content:"Coach: ";font-weight:800;color:var(--sun)}
+.trip svg{display:block;width:100%;height:auto;margin-top:4px}
+.trip p{margin:8px 0 0;font-size:14px;color:var(--muted)}
+/* plan */
+.wk{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:12px 14px;display:grid;gap:6px}
+.wk.now{border-color:var(--sun);box-shadow:0 0 0 3px var(--sun-soft)}
+.wk.past{opacity:.6}
+.wk .h{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.wk .h b{font-family:var(--f-display);font-weight:400;font-size:20px;color:var(--sea)}
+.wk.race .h b{color:var(--sun)}
+.wk .h span{font-size:13px;font-weight:800;color:var(--muted)}
+.wk .days{display:flex;flex-wrap:wrap;gap:6px}
+.wk .days span{font-family:var(--f-mono);font-size:14px;padding:4px 10px;border-radius:10px;background:var(--bg);border:1px solid var(--line)}
+.wk .days span.l{background:var(--sun-soft);border-color:var(--sun);font-weight:500}
+.tag{font-size:11px;font-weight:800;padding:2px 8px;border-radius:99px;background:var(--sand);color:var(--ink)}
+.rules{display:grid;gap:10px}
+.rules p{margin:0;font-size:15px}
+.light{display:grid;grid-template-columns:18px 1fr;gap:10px;align-items:start;font-size:15px}
+.light i{width:16px;height:16px;border-radius:50%;margin-top:3px}
+/* runs */
+.run{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:12px 14px;display:grid;gap:4px}
+.run .h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.run .n{font-size:15px;color:var(--muted)}
+.empty{border:2px dashed var(--line);border-radius:18px;padding:22px;text-align:center;color:var(--muted)}
+/* tab bar */
+nav{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);display:flex;justify-content:center;padding-bottom:env(safe-area-inset-bottom,0px);padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px);z-index:5}
+nav .in{display:grid;grid-template-columns:repeat(3,1fr);width:100%;max-width:480px}
+nav button{appearance:none;border:0;background:none;color:var(--muted);font:800 13px var(--f-body);padding:10px 0 12px;display:grid;justify-items:center;gap:3px;cursor:pointer}
+nav button svg{width:24px;height:24px}
+nav button[aria-current="page"]{color:var(--sun)}
+nav button:focus-visible{outline:3px solid var(--sea);outline-offset:-3px}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="c">
+  <p class="top"><b>N <i>&amp;</i> Q</b><span id="days"></span></p>
+
+  <!-- THIS WEEK -->
+  <section id="v-week" style="display:grid;gap:16px">
+    <div class="next">
+      <small>Next run</small>
+      <b id="nkm">–</b>
+      <span class="when" id="nwhen"></span>
+      <div class="pills" id="npills"></div>
+    </div>
+    <div class="box">
+      <p class="meta"><span id="wk">This week</span><span id="kmtxt"></span></p>
+      <div class="bar"><i id="kmbar"></i></div>
+      <ul id="list"></ul>
+    </div>
+    <p class="coach" id="coach"></p>
+    <div class="box trip">
+      <p class="meta" style="margin:0"><span>The road to 42.2</span><span>Fri long run</span></p>
+      <svg id="trip" viewBox="0 0 320 72" role="img" aria-label="Friday long run distance for each of the 14 weeks"></svg>
+      <p>Checkpoints: 22 km pain-free by Fri 11 Dec, 30+ km by Fri 22 Jan.</p>
+    </div>
+  </section>
+
+  <!-- PLAN -->
+  <section id="v-plan" hidden style="display:grid;gap:12px">
+    <h2>The 14 weeks</h2>
+    <p class="sub">Dead Sea Marathon · Fri 5 Feb 2027 · Ein Bokek</p>
+    <div class="box rules">
+      <p><b>Easy pace ~7:00/km</b>, long runs ~7:15/km with walk breaks (run 9 min, walk 1).</p>
+      <p>Heart rate under 150 on N's watch beats the pace: if it's high, slow down.</p>
+      <div class="light"><i style="background:var(--good)"></i><span>Up to 3/10, gone by morning: keep going.</span></div>
+      <div class="light"><i style="background:var(--warn)"></i><span>Shin or knee worse next day: repeat the week.</span></div>
+      <div class="light"><i style="background:var(--bad)"></i><span>Sharp pain in one spot or limping: stop, see the physio.</span></div>
+    </div>
+    <div id="weeks" style="display:grid;gap:10px"></div>
+  </section>
+
+  <!-- RUNS -->
+  <section id="v-runs" hidden style="display:grid;gap:12px">
+    <h2>Our runs</h2>
+    <p class="sub" id="runsum"></p>
+    <div id="log" style="display:grid;gap:10px"></div>
+  </section>
+</div>
+
+<nav aria-label="Sections"><div class="in">
+  <button data-v="week" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>This week</button>
+  <button data-v="plan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="3"/><path d="M8 3v4M16 3v4M4 10h16"/></svg>Plan</button>
+  <button data-v="runs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19l5-6 4 3 7-9"/><path d="M15 7h5v5"/></svg>Runs</button>
+</div></nav>
+
+<script>
+(function(){
+  const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],DOW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const pad=x=>String(x).padStart(2,'0');
+  const t=new Date(),today=t.getFullYear()+'-'+pad(t.getMonth()+1)+'-'+pad(t.getDate());
+  const parse=s=>{const p=String(s).split('-');return new Date(+p[0],+p[1]-1,+p[2])};
+  const iso=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+  const add=(s,n)=>{const d=parse(s);d.setDate(d.getDate()+n);return iso(d)};
+  const fmt=s=>{const d=parse(s);return DOW[d.getDay()]+' '+d.getDate()+' '+MON[d.getMonth()]};
+  const short=s=>{const d=parse(s);return d.getDate()+' '+MON[d.getMonth()]};
+  const r1=v=>Math.round(v*10)/10;
+  const secs=p=>{const m=String(p||'7:00').split(':');return (+m[0])*60+(+m[1]||0)};
+  const mmss=s=>Math.floor(s/60)+':'+pad(Math.round(s%60));
+  const dur=s=>{const m=Math.round(s/300)*5;return m>=60?Math.floor(m/60)+'h'+pad(m%60):m+' min'};
+  const kmTxt=r=>r.upTo?(r.km+'–'+r.upTo+' km'):(r.km+' km');
+  const timeTxt=r=>{const p=secs(r.pace);return '~'+dur(r.km*p)+(r.upTo?'–'+dur(r.upTo*p):'')};
+  const el=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e};
+  const vcls=v=>/plan|great|good/i.test(v)?'good':/fast|long/i.test(v)?'warn':v?'bad':'';
+  document.getElementById('days').textContent=Math.max(0,Math.round((parse('2027-02-05')-parse(today))/864e5))+' days to go';
+
+  const PLAN=[
+    {n:1,d:'2026-11-02',mon:5,wed:5,fri:10,sat:0,ph:'Base'},
+    {n:2,d:'2026-11-09',mon:5,wed:6,fri:12,sat:0,ph:'Base'},
+    {n:3,d:'2026-11-16',mon:6,wed:6,fri:14,sat:0,ph:'Base'},
+    {n:4,d:'2026-11-23',mon:6,wed:8,fri:18,sat:5,ph:'Build'},
+    {n:5,d:'2026-11-30',mon:6,wed:8,fri:20,sat:5,ph:'Build'},
+    {n:6,d:'2026-12-07',mon:7,wed:9,fri:22,sat:5,ph:'Build',flag:'Checkpoint 1'},
+    {n:7,d:'2026-12-14',mon:5,wed:7,fri:16,sat:4,ph:'Easy week'},
+    {n:8,d:'2026-12-21',mon:7,wed:10,fri:24,sat:5,ph:'Build'},
+    {n:9,d:'2026-12-28',mon:8,wed:10,fri:26,sat:6,ph:'Peak'},
+    {n:10,d:'2027-01-04',mon:8,wed:11,fri:28,sat:6,ph:'Peak'},
+    {n:11,d:'2027-01-11',mon:6,wed:8,fri:22,sat:5,ph:'Easy week'},
+    {n:12,d:'2027-01-18',mon:8,wed:10,fri:31,friL:'30–32',sat:6,ph:'Biggest run',flag:'Checkpoint 2'},
+    {n:13,d:'2027-01-25',mon:6,wed:8,fri:20,sat:5,ph:'Taper'},
+    {n:14,d:'2027-02-01',mon:6,wed:5,fri:42.2,friL:'RACE 42.2',sat:0,ph:'Race week'}
+  ];
+  let state={week:0,runs:[],coach:'',log:[],weeks:{}};
+
+  function plan(){
+    const o=state.weeks||{};
+    return PLAN.map(w=>{const x=Object.assign({},w),ov=o[String(w.n)];
+      if(ov&&typeof ov==='object'){['mon','wed','fri','sat'].forEach(k=>{if(typeof ov[k]==='number')x[k]=ov[k]});if(ov.note)x.note=String(ov.note)}
+      return x});
+  }
+
+  function renderWeek(){
+    const runs=Array.isArray(state.runs)?state.runs:[];
+    const ul=document.getElementById('list');ul.textContent='';
+    runs.forEach(r=>{
+      const li=el('li','row'+(r.doneKm?' done':(r.date<today?' missed':'')));
+      const mid=el('div');mid.style.minWidth='0';
+      const d=el('div','d',fmt(r.date)+(r.long?' · long':''));
+      if(r.doneKm&&r.verdict)d.appendChild(el('span','v '+vcls(r.verdict),String(r.verdict)));
+      const s=el('div','s',r.doneKm?('ran '+r1(r.doneKm)+' km'+(r.donePace?' · '+r.donePace+'/km':'')):((r.pace||'7:00')+'/km · '+timeTxt(r)));
+      mid.append(d,s);
+      li.append(el('span','ic'),mid,el('span','k',r.doneKm?(r1(r.doneKm)+' km'):kmTxt(r)));
+      ul.appendChild(li);
+    });
+    const n=runs.find(r=>!r.doneKm&&r.date>=today);
+    document.getElementById('nkm').textContent=n?kmTxt(n)+(n.long?' long':''):'Week done!';
+    document.getElementById('nwhen').textContent=n?(n.date===today?'Today':fmt(n.date))+' · '+(n.time||'06:30'):'Rest up, next week lands Sunday night';
+    const pills=document.getElementById('npills');pills.textContent='';
+    if(n)[(n.pace||'7:00')+'/km',timeTxt(n),n.long?'run 9 · walk 1':'easy, can chat'].forEach(x=>pills.appendChild(el('span','',x)));
+    const c=document.getElementById('coach');c.textContent=state.coach?String(state.coach):'';c.hidden=!state.coach;
+    const wn=typeof state.week==='number'?state.week:0;
+    document.getElementById('wk').textContent=wn>0?('Week '+wn+' of 14 · '+(PLAN[wn-1]?PLAN[wn-1].ph:'')):'Warm-up before week 1';
+    const pl=runs.reduce((a,r)=>a+(+r.km||0),0),dn=runs.reduce((a,r)=>a+(+r.doneKm||0),0);
+    document.getElementById('kmtxt').textContent=r1(dn)+' / '+r1(pl)+' km';
+    document.getElementById('kmbar').style.width=(pl?Math.min(100,dn/pl*100):0)+'%';
+    const svg=document.getElementById('trip');svg.textContent='';
+    const NS='http://www.w3.org/2000/svg',bw=320/14,P=plan();
+    P.forEach((w,i)=>{const v=w.fri,h=Math.max(3,v/42.2*52),x=i*bw+3,rc=document.createElementNS(NS,'rect');
+      [['x',x],['y',56-h],['width',bw-6],['height',h],['rx',3],['fill',i===13?'var(--sun)':'var(--sea)'],['fill-opacity',i+1<wn?'.9':(i+1===wn?'1':'.25')]].forEach(a=>rc.setAttribute(a[0],a[1]));
+      const tt=document.createElementNS(NS,'title');tt.textContent='Week '+(i+1)+': '+(w.friL||v+' km');rc.appendChild(tt);svg.appendChild(rc);
+      if(i+1===wn||i===13||(wn===0&&i===0)){const tx=document.createElementNS(NS,'text');[['x',x+(bw-6)/2],['y',69],['text-anchor','middle'],['font-size','10'],['font-weight','800'],['fill',i===13?'var(--sun)':'var(--ink)']].forEach(a=>tx.setAttribute(a[0],a[1]));tx.textContent=i===13?'RACE':(wn===0?'Mon':'now');svg.appendChild(tx)}});
+  }
+
+  function renderPlan(){
+    const box=document.getElementById('weeks');box.textContent='';
+    plan().forEach(w=>{
+      const end=add(w.d,7),now=today>=w.d&&today<end,past=today>=end;
+      const card=el('div','wk'+(now?' now':'')+(past?' past':'')+(w.n===14?' race':''));
+      const h=el('div','h');h.append(el('b','','Week '+w.n));
+      const right=el('span','',short(w.d)+' · '+w.ph);h.append(right);card.append(h);
+      if(w.flag){const f=el('div');f.append(el('span','tag',w.flag));card.append(f)}
+      const days=el('div','days');
+      [['Mon',w.mon,'7:00'],['Wed',w.wed,'7:00'],['Fri',w.fri,'7:15',true],['Sat',w.sat,'7:15']].forEach(r=>{
+        if(!r[1])return;
+        const lbl=r[3]&&w.friL?w.friL:(r[1]+' km');
+        days.append(el('span',r[3]?'l':'',r[0]+' '+lbl+(w.n===14&&r[3]?'':' @'+r[2])));
+      });
+      card.append(days);
+      if(w.note)card.append(el('div','s',w.note));
+      const tot=[w.mon,w.wed,w.fri,w.sat].reduce((a,b)=>a+b,0);
+      if(w.n<14)card.append(el('div','s',(w.n===12&&w.fri===31?'54–56':tot)+' km this week'));
+      box.append(card);
+    });
+  }
+
+  function renderRuns(){
+    const log=(Array.isArray(state.log)?state.log:[]).slice().sort((a,b)=>a.date<b.date?1:-1);
+    const box=document.getElementById('log');box.textContent='';
+    const total=log.reduce((a,r)=>a+(+r.km||0),0);
+    document.getElementById('runsum').textContent=log.length?(log.length+' runs · '+r1(total)+' km together'):'';
+    if(!log.length){box.append(el('div','empty','Our runs show up here after each run, with how it went.'));return}
+    log.forEach(r=>{
+      const c=el('div','run');
+      const h=el('div','h');const l=el('div','d',fmt(r.date));if(r.verdict)l.append(el('span','v '+vcls(r.verdict),String(r.verdict)));
+      h.append(l,el('span','k',r1(+r.km||0)+' km'));c.append(h);
+      const st=[r.pace?(typeof r.pace==='number'?mmss(r.pace):r.pace)+'/km':'',r.hr?'HR '+r.hr:''].filter(Boolean).join(' · ');
+      if(st)c.append(el('div','s',st));
+      if(r.note)c.append(el('div','n',String(r.note)));
+      box.append(c);
+    });
+  }
+
+  function renderAll(){renderWeek();renderPlan();renderRuns()}
+
+  function show(v){
+    ['week','plan','runs'].forEach(k=>{document.getElementById('v-'+k).hidden=(k!==v)});
+    document.querySelectorAll('nav button').forEach(b=>{if(b.dataset.v===v)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')});
+    window.scrollTo(0,0);
+    if(v==='plan'){const n=document.querySelector('.wk.now');if(n)n.scrollIntoView({block:'center'})}
+  }
+  document.querySelectorAll('nav button').forEach(b=>b.addEventListener('click',()=>show(b.dataset.v)));
+
+  renderAll();
+  function load(){fetch('data.json?t='+Date.now(),{cache:'no-store'}).then(r=>r.ok?r.json():null).then(d=>{if(d&&typeof d==='object'){state=Object.assign({week:0,runs:[],coach:'',log:[],weeks:{}},d);renderAll()}}).catch(()=>{})}
+  load();
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)load()});
+})();
+</script>
+</body>
+</html>

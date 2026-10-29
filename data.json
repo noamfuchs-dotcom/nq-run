@@ -1,0 +1,56 @@
+{
+ "week": 0,
+ "runs": [
+  {
+   "date": "2026-10-30",
+   "km": 10,
+   "upTo": 12,
+   "pace": "7:00",
+   "long": true
+  },
+  {
+   "date": "2026-11-02",
+   "km": 5,
+   "pace": "7:00"
+  },
+  {
+   "date": "2026-11-04",
+   "km": 5,
+   "pace": "7:00"
+  },
+  {
+   "date": "2026-11-06",
+   "km": 10,
+   "pace": "7:15",
+   "long": true
+  }
+ ],
+ "coach": "Tomorrow: plan 10, go to 12 only if you both feel fresh at km 9.",
+ "log": [
+  {
+   "date": "2026-10-29",
+   "km": 4.8,
+   "pace": "6:09",
+   "hr": 156,
+   "verdict": "a bit fast",
+   "note": "Nice and steady, but a little quicker than our easy pace."
+  },
+  {
+   "date": "2026-10-26",
+   "km": 5,
+   "pace": "6:00",
+   "hr": 157,
+   "verdict": "a bit fast",
+   "note": "Good distance. Slow down about 30 s/km next time."
+  },
+  {
+   "date": "2026-10-24",
+   "km": 8,
+   "pace": "5:52",
+   "hr": 164,
+   "verdict": "too fast",
+   "note": "Longest run in a while, but this was a moderate run, not an easy one."
+  }
+ ],
+ "weeks": {}
+}
