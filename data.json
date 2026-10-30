@@ -6,7 +6,10 @@
    "km": 10,
    "upTo": 12,
    "pace": "7:00",
-   "long": true
+   "long": true,
+   "doneKm": 10.3,
+   "donePace": "7:25",
+   "verdict": "on plan"
   },
   {
    "date": "2026-11-02",
@@ -26,8 +29,16 @@
    "long": true
   }
  ],
- "coach": "Tomorrow: plan 10, go to 12 only if you both feel fresh at km 9.",
+ "coach": "Perfect warm-up: 10.3 km, HR 142. Easy the last minutes of each block.",
  "log": [
+  {
+   "date": "2026-10-30",
+   "km": 10.3,
+   "pace": "7:25",
+   "hr": 142,
+   "verdict": "on plan",
+   "note": "Our best-paced run yet: running at ~6:55/km with walks, HR mostly in the 130s–140s. Just ease off in the last 2–3 minutes of each 9-min block."
+  },
   {
    "date": "2026-10-29",
    "km": 4.8,
