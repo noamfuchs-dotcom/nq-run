@@ -14,12 +14,15 @@
   {
    "date": "2026-11-02",
    "km": 5,
-   "pace": "7:00"
+   "pace": "7:00",
+   "doneKm": 5.7,
+   "donePace": "6:57",
+   "verdict": "on plan"
   },
   {
    "date": "2026-11-04",
    "km": 5,
-   "pace": "7:00",
+   "pace": "6:50",
    "time": "19:00"
   },
   {
@@ -29,8 +32,16 @@
    "long": true
   }
  ],
- "coach": "Perfect warm-up: 10.3 km, HR 142. Easy the last minutes of each block.",
+ "coach": "New paces: 6:50 on Wednesday, still easy enough to chat.",
  "log": [
+  {
+   "date": "2026-11-02",
+   "km": 5.7,
+   "pace": "6:57",
+   "hr": 147,
+   "verdict": "on plan",
+   "note": "Right on our easy pace with HR 147. Just skip the sprint at the end."
+  },
   {
    "date": "2026-10-30",
    "km": 10.3,
