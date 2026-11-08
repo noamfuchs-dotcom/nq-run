@@ -1,39 +1,6 @@
 {
- "week": 0,
+ "week": 2,
  "runs": [
-  {
-   "date": "2026-10-30",
-   "km": 10,
-   "upTo": 12,
-   "pace": "7:00",
-   "long": true,
-   "doneKm": 10.3,
-   "donePace": "7:25",
-   "verdict": "on plan"
-  },
-  {
-   "date": "2026-11-02",
-   "km": 5,
-   "pace": "7:00",
-   "doneKm": 5.7,
-   "donePace": "6:57",
-   "verdict": "on plan"
-  },
-  {
-   "date": "2026-11-04",
-   "km": 5,
-   "pace": "6:50",
-   "time": "19:00"
-  },
-  {
-   "date": "2026-11-06",
-   "km": 10,
-   "pace": "7:15",
-   "long": true,
-   "doneKm": 10.4,
-   "donePace": "7:24",
-   "verdict": "on plan"
-  },
   {
    "date": "2026-11-09",
    "km": 5,
@@ -41,18 +8,18 @@
   },
   {
    "date": "2026-11-11",
-   "km": 6,
+   "km": 4,
    "pace": "6:50",
    "time": "19:00"
   },
   {
    "date": "2026-11-13",
-   "km": 12,
+   "km": 10,
    "pace": "7:15",
    "long": true
   }
  ],
- "coach": "10.4 km together with perfect walk breaks. Week 1 done, well run!",
+ "coach": "Gentle week: run Wednesday, and ease off from km 5 on Friday.",
  "log": [
   {
    "date": "2026-11-06",
@@ -103,5 +70,13 @@
    "note": "Longest run in a while, but this was a moderate run, not an easy one."
   }
  ],
- "weeks": {}
+ "weeks": {
+  "2": {
+   "mon": 5,
+   "wed": 4,
+   "fri": 10,
+   "sat": 0,
+   "note": "Eased from 23 to 19 km: week 1 was 16 km (Wed missed), long run stays 10 so HR stays calm late."
+  }
+ }
 }
