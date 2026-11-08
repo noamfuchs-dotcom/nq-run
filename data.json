@@ -29,11 +29,39 @@
    "date": "2026-11-06",
    "km": 10,
    "pace": "7:15",
+   "long": true,
+   "doneKm": 10.4,
+   "donePace": "7:24",
+   "verdict": "on plan"
+  },
+  {
+   "date": "2026-11-09",
+   "km": 5,
+   "pace": "6:40"
+  },
+  {
+   "date": "2026-11-11",
+   "km": 6,
+   "pace": "6:50",
+   "time": "19:00"
+  },
+  {
+   "date": "2026-11-13",
+   "km": 12,
+   "pace": "7:15",
    "long": true
   }
  ],
- "coach": "New paces: 6:50 on Wednesday, still easy enough to chat.",
+ "coach": "10.4 km together with perfect walk breaks. Week 1 done, well run!",
  "log": [
+  {
+   "date": "2026-11-06",
+   "km": 10.4,
+   "pace": "7:24",
+   "hr": 149,
+   "verdict": "on plan",
+   "note": "First long run of the plan done together with the walk breaks just right; next time ease the running a touch in the second half."
+  },
   {
    "date": "2026-11-02",
    "km": 5.7,
