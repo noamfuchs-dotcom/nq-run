@@ -19,7 +19,7 @@
    "long": true
   }
  ],
- "coach": "New path: long run +2 km every week to 30. No skipped runs, we have this.",
+ "coach": "Plan locked: +2 km a week to 28 km on 15 Jan. Decision run 8 Jan.",
  "log": [
   {
    "date": "2026-11-06",
@@ -83,84 +83,84 @@
    "wed": 5,
    "fri": 12,
    "sat": 0,
-   "note": "Tight path: long run +2 km a week from here."
+   "note": "Long run +2 km a week from here."
   },
   "4": {
    "mon": 6,
    "wed": 6,
    "fri": 14,
    "sat": 0,
-   "note": ""
+   "note": "First run over 90 min: start practising gels or dates."
   },
   "5": {
    "mon": 6,
    "wed": 6,
    "fri": 16,
    "sat": 3,
-   "note": "Saturday recovery jog starts."
+   "note": "Saturday recovery jog starts. Checkpoint 1 on Fri 4 Dec."
   },
   "6": {
    "mon": 6,
    "wed": 7,
    "fri": 18,
    "sat": 4,
-   "note": "Checkpoint 1: 18 km pain-free on 11 Dec."
+   "note": "Try run 4 min / walk 1 min."
   },
   "7": {
-   "mon": 6,
-   "wed": 7,
-   "fri": 20,
+   "mon": 5,
+   "wed": 6,
+   "fri": 13,
    "sat": 4,
-   "note": ""
+   "note": "Cutback week. Try run 4 min / walk 30 s."
   },
   "8": {
    "mon": 6,
    "wed": 8,
-   "fri": 22,
+   "fri": 20,
    "sat": 5,
-   "note": ""
+   "note": "Race fuel locked in from here."
   },
   "9": {
-   "mon": 5,
-   "wed": 6,
-   "fri": 16,
-   "sat": 4,
-   "note": "Cutback week."
+   "mon": 6,
+   "wed": 8,
+   "fri": 23,
+   "sat": 5,
+   "note": ""
   },
   "10": {
    "mon": 6,
    "wed": 8,
-   "fri": 25,
+   "fri": 26,
    "sat": 5,
-   "note": ""
+   "note": "Decision run Fri 8 Jan: full or half, each of us decides. Switch deadline 10 Jan."
   },
   "11": {
    "mon": 6,
    "wed": 8,
    "fri": 28,
    "sat": 5,
-   "note": ""
+   "note": "Longest run, about 3.5 hours. Race shoes, dirt path."
   },
   "12": {
-   "mon": 6,
-   "wed": 8,
-   "fri": 30,
-   "sat": 5,
-   "note": "Checkpoint 2: 30 km on 22 Jan, no flare-up next day."
+   "mon": 5,
+   "wed": 6,
+   "fri": 16,
+   "sat": 4,
+   "note": "Taper 1."
   },
   "13": {
    "mon": 5,
-   "wed": 6,
-   "fri": 14,
-   "sat": 4,
-   "note": "Taper."
+   "wed": 4,
+   "fri": 10,
+   "sat": 3,
+   "note": "Taper 2."
   },
   "14": {
-   "mon": 5,
-   "wed": 4,
+   "mon": 4,
+   "wed": 3,
    "fri": 42.2,
    "sat": 0,
-   "note": "Race day, Fri 5 Feb."
+   "note": "Race day, Fri 5 Feb, 06:15 start."
   }
  }
 }
