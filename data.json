@@ -4,7 +4,10 @@
   {
    "date": "2026-11-09",
    "km": 5,
-   "pace": "6:40"
+   "pace": "6:40",
+   "doneKm": 5.0,
+   "donePace": "6:21",
+   "verdict": "a bit fast"
   },
   {
    "date": "2026-11-11",
@@ -19,8 +22,16 @@
    "long": true
   }
  ],
- "coach": "Plan locked: +2 km a week to 28 km on 15 Jan. Decision run 8 Jan.",
+ "coach": "Lovely steady 5 km together; Wednesday a bit slower, 6:50, nice and calm.",
  "log": [
+  {
+   "date": "2026-11-09",
+   "km": 5.0,
+   "pace": "6:21",
+   "hr": 153,
+   "verdict": "a bit fast",
+   "note": "Smooth, steady 5 km and nicer cadence, just a touch quick, so Wednesday let's hold 6:50 and let the heart rate stay calm."
+  },
   {
    "date": "2026-11-06",
    "km": 10.4,
