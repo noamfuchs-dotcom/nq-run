@@ -13,7 +13,10 @@
    "date": "2026-11-11",
    "km": 4,
    "pace": "6:50",
-   "time": "19:00"
+   "time": "19:00",
+   "doneKm": 5.0,
+   "donePace": "6:50",
+   "verdict": "too long"
   },
   {
    "date": "2026-11-13",
@@ -22,8 +25,16 @@
    "long": true
   }
  ],
- "coach": "Lovely steady 5 km together; Wednesday a bit slower, 6:50, nice and calm.",
+ "coach": "Perfect 6:50 together on Wednesday! Friday's 10 km: easy, with walk breaks.",
  "log": [
+  {
+   "date": "2026-11-11",
+   "km": 5.0,
+   "pace": "6:50",
+   "hr": 153,
+   "verdict": "too long",
+   "note": "Bang on 6:50 together, lovely and even; next time we stop at the planned 4 km and ease off once HR passes 150."
+  },
   {
    "date": "2026-11-09",
    "km": 5.0,
